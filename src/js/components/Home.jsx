@@ -1,20 +1,36 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+/**
+ * @class Landing Page 
+ * Landing Page of the application
+*/
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div>Shubham</div>
-    );
-  }
+class Home extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
+    componentWillMount() {
+    }
+    render() {
+        return(
+            <div>
+                Shubham
+            </div>
+        );
+    }
 }
-Home.propTypes = {
+/**
+ * Maps the state of the component to the state of the redux store
+ * @param {object} state. State of the application
+ */
 
+const mapState = (state) => { 
+  console.log(state);
+    return {
+        messages: state.messages,
+    }
 };
-Home.defaultProps = {
 
-};
 
-export default Home;
+export default connect(mapState)(Home);
